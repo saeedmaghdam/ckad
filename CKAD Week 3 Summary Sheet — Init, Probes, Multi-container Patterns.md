@@ -1,4 +1,4 @@
-# 📌 Week 3 Summary Sheet — Init, Probes, Multi-container Patterns
+# 📌 CKAD Week 3 Summary Sheet — Init, Probes, Multi-container Patterns
 
 ## 1) Quick Exam Ritual (2 min)
 
