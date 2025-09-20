@@ -167,6 +167,43 @@ jq '.items[] | select(.status.phase=="Running") | .metadata.name' pods.json
 
 ---
 
+## ✍️ `sed` — stream editor
+
+**Syntax:**
+
+```bash
+sed [OPTIONS] 'command' file
+```
+
+**Common flags:**
+
+* `-i` → edit file in-place
+* `-n` → suppress automatic printing (use with `p`)
+* `-E` → extended regex (on some systems)
+
+**Example input (`deploy.yaml`):**
+
+```yaml
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: api
+        image: myapp:1.0
+```
+
+**Examples:**
+
+```bash
+sed 's/myapp:1.0/myapp:1.1/' deploy.yaml     # replace in output only
+sed -i 's/myapp:1.0/myapp:1.1/' deploy.yaml  # replace in file (in-place)
+sed '/replicas/d' deploy.yaml                # delete lines containing "replicas"
+sed -n '3p' deploy.yaml                      # print only line 3
+```
+
+---
+
 # 📟 Extra: Professional Use of `screen` (Not CKAD)
 
 `screen` lets you run multiple shell sessions inside one terminal — very useful for real-world ops work.
